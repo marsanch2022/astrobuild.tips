@@ -3,6 +3,8 @@ const {
     content: { title, pubDate, image, tags },
 } = Astro.props;
 console.log('Astro.props.content:', Astro.props.content);
+const event = new Date(pubDate);
+const date = event.toDateString().slice(0, -4);
 ---
 <section>
     <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
@@ -11,7 +13,7 @@ console.log('Astro.props.content:', Astro.props.content);
           {title}
         </h2>
         <span>
-            <time class="pr-2">{pubDate}</time>
+            <time class="pr-2">{date}</time>
             {
                 tags.map((item) => (
                 <span
